@@ -25,7 +25,7 @@ function checkPassword() {
         'Rerria': '35874',
         'Jesia': '78541',
         'Necropolis': '68971',
-        'Krimera': '45381',
+        'Krimera': '78964',
         // Add more pages as needed
     };
 
