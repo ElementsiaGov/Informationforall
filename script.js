@@ -13,8 +13,6 @@ function checkPassword() {
         'Nationale Republik': '13467',
         'Gympieland': '78451',
         'Vermillion': '32659',
-        'Hallow Carthage': '45120',
-        'Krimera': '56890',
         'Puritanos Fed': '32598',
         'Calicadonia': '73015',
         'Romanic Imperium': '43085',
@@ -27,6 +25,7 @@ function checkPassword() {
         'Rerria': '35874',
         'Jesia': '78541',
         'Necropolis': '68971',
+        'Krimera': '78541',
         // Add more pages as needed
     };
 
