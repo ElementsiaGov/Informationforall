@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<style>
+    *{margin:0;padding:0;text-decoration:none}
+body{background-image: url(https://th.bing.com/th/id/OIP.XD_UcvPUFNHalFfNVdidzwHaE7?rs=1&pid=ImgDetMain);}
+header{position:relative;width:100%;background:rgb(30, 75, 117)666;}
+.logo{position:relative;z-index:123;padding:10px;font:18px verdana;color:#ebebeb;float:left;width:15%}
+.logo a{color:#ffffff;}
+nav{position:relative;width:980px;margin:0 auto;}
+#cssmenu,#cssmenu ul,#cssmenu ul li,#cssmenu ul li a,#cssmenu #head-mobile{border:0;list-style:none;line-height:1;display:block;position:relative;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
+#cssmenu:after,#cssmenu > ul:after{content:".";display:block;clear:both;visibility:hidden;line-height:0;height:0}
+#cssmenu #head-mobile{display:none}
+#cssmenu{font-family:sans-serif;background:rgb(204, 139, 19)}
+#cssmenu > ul > li{float:left}
+#cssmenu > ul > li > a{padding:17px;font-size:12px;letter-spacing:1px;text-decoration:none;color:#ddd;font-weight:700;}
+#cssmenu > ul > li:hover > a,#cssmenu ul li.active a{color:#fff}
+#cssmenu > ul > li:hover,#cssmenu ul li.active:hover,#cssmenu ul li.active,#cssmenu ul li.has-sub.active:hover{background:orange!important;-webkit-transition:background .3s ease;-ms-transition:background .3s ease;transition:background .3s ease;}
+#cssmenu > ul > li.has-sub > a{padding-right:30px}
+#cssmenu > ul > li.has-sub > a:after{position:absolute;top:22px;right:11px;width:8px;height:2px;display:block;background:#ddd;content:''}
+#cssmenu > ul > li.has-sub > a:before{position:absolute;top:19px;right:14px;display:block;width:2px;height:8px;background:#ddd;content:'';-webkit-transition:all .25s ease;-ms-transition:all .25s ease;transition:all .25s ease}
+#cssmenu > ul > li.has-sub:hover > a:before{top:23px;height:0}
+#cssmenu ul ul{position:absolute;left:-9999px}
+#cssmenu ul ul li{height:0;-webkit-transition:all .25s ease;-ms-transition:all .25s ease;background:#333;transition:all .25s ease}
+#cssmenu ul ul li:hover{}
+#cssmenu li:hover > ul{left:auto}
+#cssmenu li:hover > ul > li{height:35px}
+#cssmenu ul ul ul{margin-left:100%;top:0}
+#cssmenu ul ul li a{border-bottom:1px solid rgba(150,150,150,0.15);padding:11px 15px;width:170px;font-size:12px;text-decoration:none;color:#ddd;font-weight:400;}
+#cssmenu ul ul li:last-child > a,#cssmenu ul ul li.last-item > a{border-bottom:0}
+#cssmenu ul ul li:hover > a,#cssmenu ul ul li a:hover{color:#fff}
+#cssmenu ul ul li.has-sub > a:after{position:absolute;top:16px;right:11px;width:8px;height:2px;display:block;background:#ddd;content:''}
+#cssmenu ul ul li.has-sub > a:before{position:absolute;top:13px;right:14px;display:block;width:2px;height:8px;background:#ddd;content:'';-webkit-transition:all .25s ease;-ms-transition:all .25s ease;transition:all .25s ease}
+#cssmenu ul ul > li.has-sub:hover > a:before{top:17px;height:0}
+#cssmenu ul ul li.has-sub:hover,#cssmenu ul li.has-sub ul li.has-sub ul li:hover{background:#363636;}
+#cssmenu ul ul ul li.active a{border-left:1px solid #333}
+#cssmenu > ul > li.has-sub > ul > li.active > a,#cssmenu > ul ul > li.has-sub > ul > li.active> a{border-top:1px solid #333}
+
+@media screen and (max-width:1000px){
+.logo{position:absolute;top:0;left: 0;width:100%;height:46px;text-align:center;padding:10px 0 0 0 ;float:none}
+.logo2{display:none}
+nav{width:100%;}
+#cssmenu{width:100%}
+#cssmenu ul{width:100%;display:none}
+#cssmenu ul li{width:100%;border-top:1px solid #444}
+#cssmenu ul li:hover{background:#363636;}
+#cssmenu ul ul li,#cssmenu li:hover > ul > li{height:auto}
+#cssmenu ul li a,#cssmenu ul ul li a{width:100%;border-bottom:0}
+#cssmenu > ul > li{float:none}
+#cssmenu ul ul li a{padding-left:25px}
+#cssmenu ul ul li{background:#333!important;}
+#cssmenu ul ul li:hover{background:#363636!important}
+#cssmenu ul ul ul li a{padding-left:35px}
+#cssmenu ul ul li a{color:#ddd;background:none}
+#cssmenu ul ul li:hover > a,#cssmenu ul ul li.active > a{color:#fff}
+#cssmenu ul ul,#cssmenu ul ul ul{position:relative;left:0;width:100%;margin:0;text-align:left}
+#cssmenu > ul > li.has-sub > a:after,#cssmenu > ul > li.has-sub > a:before,#cssmenu ul ul > li.has-sub > a:after,#cssmenu ul ul > li.has-sub > a:before{display:none}
+#cssmenu #head-mobile{display:block;padding:23px;color:#ddd;font-size:12px;font-weight:700}
+.button{width:55px;height:46px;position:absolute;right:0;top:0;cursor:pointer;z-index: 12399994;}
+.button:after{position:absolute;top:22px;right:20px;display:block;height:4px;width:20px;border-top:2px solid #dddddd;border-bottom:2px solid #dddddd;content:''}
+.button:before{-webkit-transition:all .3s ease;-ms-transition:all .3s ease;transition:all .3s ease;position:absolute;top:16px;right:20px;display:block;height:2px;width:20px;background:#ddd;content:''}
+.button.menu-opened:after{-webkit-transition:all .3s ease;-ms-transition:all .3s ease;transition:all .3s ease;top:23px;border:0;height:2px;width:19px;background:#fff;-webkit-transform:rotate(45deg);-moz-transform:rotate(45deg);-ms-transform:rotate(45deg);-o-transform:rotate(45deg);transform:rotate(45deg)}
+.button.menu-opened:before{top:23px;background:#fff;width:19px;-webkit-transform:rotate(-45deg);-moz-transform:rotate(-45deg);-ms-transform:rotate(-45deg);-o-transform:rotate(-45deg);transform:rotate(-45deg)}
+#cssmenu .submenu-button{position:absolute;z-index:99;right:0;top:0;display:block;border-left:1px solid #444;height:46px;width:46px;cursor:pointer}
+#cssmenu .submenu-button.submenu-opened{background:#262626}
+#cssmenu ul ul .submenu-button{height:34px;width:34px}
+#cssmenu .submenu-button:after{position:absolute;top:22px;right:19px;width:8px;height:2px;display:block;background:#ddd;content:''}
+#cssmenu ul ul .submenu-button:after{top:15px;right:13px}
+#cssmenu .submenu-button.submenu-opened:after{background:#fff}
+#cssmenu .submenu-button:before{position:absolute;top:19px;right:22px;display:block;width:2px;height:8px;background:#ddd;content:''}
+#cssmenu ul ul .submenu-button:before{top:12px;right:16px}
+#cssmenu .submenu-button.submenu-opened:before{display:none}
+#cssmenu ul ul ul li.active a{border-left:none}
+#cssmenu > ul > li.has-sub > ul > li.active > a,#cssmenu > ul ul > li.has-sub > ul > li.active > a{border-top:none}
+}
+.welcome {
+    background-color: #dbe7dc;
+    font-family: Arial, Helvetica, sans-serif;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border-top: solid black 2px;
+}
+</style>
+<body>
+    <header>
+        <nav id='cssmenu'>
+        <div class="logo"><a href="index.html">Rerria </a></div>
+        <div id="head-mobile"></div>
+        <div class="button"></div>
+        <ul>
+        <li class='active'><a href='index.html'>HOME</a></li>
+        <li><a href='stats.html'>STATISTICS</a></li>
+        <li><a href='past.html'>HISTORY</a>
+           <ul>
+              <li><a href='alliances.html'>ALLIANCES</a>
+                 <ul>
+                    <li><a href='economicall.html'>ECONOMIC</a></li>
+                    <li><a href='militaryall.html'>MILITARY</a></li>
+                 </ul>
+              </li>
+           </ul>
+        </li>
+        <li><a href='news.html'>NEWS</a></li>
+        <li><a href='plans.html'>PLANS</a></li>
+        <li><a href='loans.html'>LOANS</a></li>
+        <li><a href='influences.html'>INFLUENCES</a></li>
+
+        </ul>
+        </nav>
+        </header>
+        <br>
+        <section class="welcome">
+            <p style="font-size: 30px;"><b>Welcome Rerria!</b></p>
+            <p>Welcome to the comprehensive overview of Elementsia's view on Rerria. In this detailed exploration, we will delve into key aspects such as history, news, and alliances to provide you with a nuanced understanding.</p>
+<br>
+                <h style="font-size: large;"><b>History</b></h>
+                <p>Elementsia's historical relations with [Nation] have played a crucial role in shaping the current dynamics. This section will trace the evolution of diplomatic, economic, and cultural ties over the years.</p>
+                <br>
+                <h style="font-size: large;"><b>Shared milestones</b></h>
+                <p>Highlight significant milestones or events that have defined the relationship between Elementsia and [Nation]. Whether they be collaborations, conflicts, or diplomatic breakthroughs, these moments contribute to the broader narrative.</p>
+                <br>
+                <h style="font-size: large;"><b>Recent Affairs</b></h>
+                <p>Stay updated on the latest happenings between Elementsia and [Nation]. From diplomatic exchanges to economic partnerships, this section will keep you informed about the most recent developments shaping the relationship.</p>
+                <br>
+                <h style="font-size: large;"><b>Elementsia's coverage service</b></h>
+                <p>Explore how Elementsia's media portrays and interprets events related to [Nation]. Analyze news articles, editorials, and official statements to gain insights into the public narrative.</p>
+                <br>
+                <h style="font-size: large;"><b>Alliances and cooperation</b></h>
+                <br>
+                <p>Examine the existing alliances and collaborations between Elementsia and [Nation]. Whether they are based on political, economic, or security interests, understanding these partnerships is essential to grasping the broader geopolitical context.</p>
+                <br>
+                <h style="font-size: large;"><b>Shared ideas</b></h>
+                <p>Explore joint initiatives, projects, or programs that demonstrate the collaborative efforts between Elementsia and [Nation]. These could range from cultural exchanges to scientific research collaborations.</p>
+                <br>
+                <h style="font-size: large;"><b>Elementsia's Perspective</b></h>
+                <p>Gain insights into Elementsia's official stance on [Nation] through government statements, policy documents, and diplomatic correspondence. Understand the articulated goals and priorities in the relationship.</p>
+                <br>
+                <h style="font-size: large;"><b>Public Opinion</b></h>
+                <p>Delve into public sentiment within Elementsia regarding [Nation]. This can include surveys, interviews, or social media trends that provide a glimpse into how the general population perceives the diplomatic ties.</p>
+                <br>
+                <h style="font-size: large;"><b>Overview</b></h>
+                <p>This comprehensive overview aims to provide a multifaceted understanding of Elementsia's view on [Nation]. By exploring historical ties, current affairs, and official perspectives, we hope to foster a nuanced appreciation for the complexities of this international relationship.</p>
+                <br>
+        </section>
+</body>
+<script>
+    (function ($) {
+      $.fn.menumaker = function (options) {
+        var cssmenu = $(this),
+          settings = $.extend({
+            format: "dropdown",
+            sticky: false,
+          }, options);
+  
+        var multiTg = function () {
+          cssmenu.find(".has-sub").prepend('<span class="submenu-button"></span>');
+          cssmenu.find('.submenu-button').on('click', function () {
+            $(this).toggleClass('submenu-opened');
+            if ($(this).siblings('ul').hasClass('open')) {
+              $(this).siblings('ul').removeClass('open').slideToggle();
+            } else {
+              $(this).siblings('ul').addClass('open').slideToggle();
+            }
+          });
+        };
+  
+        var resizeFix = function () {
+          var mediasize = 1000;
+          if ($(window).width() > mediasize) {
+            cssmenu.find('ul').show();
+          }
+          if ($(window).width() <= mediasize) {
+            cssmenu.find('ul').hide().removeClass('open');
+          }
+        };
+  
+        cssmenu.find(".button").on('click', function () {
+          $(this).toggleClass('menu-opened');
+          var mainmenu = $(this).next('ul');
+          if (mainmenu.hasClass('open')) {
+            mainmenu.slideToggle().removeClass('open');
+          } else {
+            mainmenu.slideToggle().addClass('open');
+            if (settings.format === "dropdown") {
+              mainmenu.find('ul').show();
+            }
+          }
+        });
+  
+        if (settings.format === 'multitoggle') multiTg();
+        else cssmenu.addClass('dropdown');
+        if (settings.sticky === true) cssmenu.css('position', 'fixed');
+        
+        resizeFix();
+        return $(window).on('resize', resizeFix);
+      };
+    })(jQuery);
+  
+    (function ($) {
+      $(document).ready(function () {
+        $("#cssmenu").menumaker({
+          format: "multitoggle"
+        });
+      });
+    })(jQuery);
+  </script>
+  
+</html>
